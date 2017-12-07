@@ -1,4 +1,4 @@
-import tkinter as fpc
+import Tkinter as fpc
 import random
 root = fpc.Tk()
 
