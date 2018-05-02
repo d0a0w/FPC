@@ -1,4 +1,4 @@
-import Tkinter as fpc
+import tkinter as fpc
 import random
 root = fpc.Tk()
 
@@ -7,7 +7,7 @@ game = 0
 result = ''
 
 
-def checkStatus():
+def checkstatus():
     global bal
     global result
     if bal > 0:
@@ -53,28 +53,28 @@ def checkStatus():
 def g1():
     global game
     game = 1
-    checkStatus()
+    checkstatus()
 
 
 def g2():
     global game
     game = 2
-    checkStatus()
+    checkstatus()
 
 
 def g3():
     global game
     game = 3
-    checkStatus()
+    checkstatus()
 
 
 def g4():
     global game
     game = 4
-    checkStatus()
+    checkstatus()
 
 
-balance = fpc.Label(root, text=str(bal))
+balance = fpc.Label(root, text=str(bal) + " Points")
 b1 = fpc.Button(root, text="Double, 4:5 odds", command=g1)
 b2 = fpc.Button(root, text="Triple, 2:5 odds", command=g2)
 b3 = fpc.Button(root, text="Quadruple, 1:8 odds", command=g3)
@@ -86,12 +86,6 @@ b1.grid(row=3, column=1)
 b2.grid(row=3, column=2)
 b3.grid(row=3, column=3)
 b4.grid(row=3, column=4)
-b1.pack()
-b2.pack()
-b3.pack()
-b4.pack()
-balance.pack()
-turnout.pack()
 
 
 root.mainloop()
