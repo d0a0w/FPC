@@ -16,31 +16,31 @@ def checkstatus():
             if int(luck) < 5:
                 result = "Win"
                 bal = bal * 2
-                balance.configure(text=str(bal))
+                balance.configure(text=str(bal) + " Points")
             if int(luck) >= 5:
                 result = "Loss"
                 bal = bal // 2
-                balance.configure(text=str(bal))
+                balance.configure(text=str(bal) + " Points")
         elif game == 2:
             luck = random.randint(1, 7)
             if luck <= 2:
                 result = "Win"
                 bal = bal * 3
-                balance.configure(text=str(bal))
+                balance.configure(text=str(bal) + " Points")
             if luck > 2:
                 result = "Loss"
                 bal = bal // 3
-                balance.configure(text=str(bal))
+                balance.configure(text=str(bal) + " Points")
         elif game == 3:
-            luck = random.randint(1, 9)
+            luck = random.randint(1, 8)
             if luck == 1:
                 result = "Win"
                 bal = bal * 4
-                balance.configure(text=str(bal))
+                balance.configure(text=str(bal) + " Points")
             if luck != 1:
                 result = "Loss"
                 bal = bal // 4
-                balance.configure(text=str(bal))
+                balance.configure(text=str(bal) + " Points")
         elif game == 4:
             exit()
         turnout.configure(text="Previous result: " + result)
@@ -77,7 +77,7 @@ def g4():
 balance = fpc.Label(root, text=str(bal) + " Points")
 b1 = fpc.Button(root, text="Double, 4:5 odds", command=g1)
 b2 = fpc.Button(root, text="Triple, 2:5 odds", command=g2)
-b3 = fpc.Button(root, text="Quadruple, 1:8 odds", command=g3)
+b3 = fpc.Button(root, text="Quadruple, 1:7 odds", command=g3)
 b4 = fpc.Button(root, text="End Game", command=g4)
 turnout = fpc.Label(root, text="Previous result: " + result)
 turnout.grid(row=4, column=5)
