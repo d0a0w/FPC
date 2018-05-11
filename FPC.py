@@ -10,14 +10,18 @@ result = ''
 def checkstatus():
     global bal
     global result
-    if bal > 0:
+    if bal >= 100000:
+        turnout.configure(text="You Win")
+        if game == 4:
+            exit()
+    elif bal > 0:
         if game == 1:
             luck = random.randint(1, 9)
             if int(luck) < 5:
                 result = "Win"
                 bal = bal * 2
                 balance.configure(text=str(bal) + " Points")
-            if int(luck) >= 5:
+            else:
                 result = "Loss"
                 bal = bal // 2
                 balance.configure(text=str(bal) + " Points")
@@ -27,7 +31,7 @@ def checkstatus():
                 result = "Win"
                 bal = bal * 3
                 balance.configure(text=str(bal) + " Points")
-            if luck > 2:
+            else:
                 result = "Loss"
                 bal = bal // 3
                 balance.configure(text=str(bal) + " Points")
@@ -37,7 +41,7 @@ def checkstatus():
                 result = "Win"
                 bal = bal * 4
                 balance.configure(text=str(bal) + " Points")
-            if luck != 1:
+            else:
                 result = "Loss"
                 bal = bal // 4
                 balance.configure(text=str(bal) + " Points")
@@ -45,7 +49,7 @@ def checkstatus():
             exit()
         turnout.configure(text="Previous result: " + result)
     else:
-        turnout.configure(text="YOU LOSE!")
+        turnout.configure(text="Game Over!")
         if game == 4:
             exit()
 
@@ -79,13 +83,13 @@ b1 = fpc.Button(root, text="Double, 4:5 odds", command=g1)
 b2 = fpc.Button(root, text="Triple, 2:5 odds", command=g2)
 b3 = fpc.Button(root, text="Quadruple, 1:7 odds", command=g3)
 b4 = fpc.Button(root, text="End Game", command=g4)
-turnout = fpc.Label(root, text="Previous result: " + result)
-turnout.grid(row=4, column=5)
+turnout = fpc.Label(root, text="Try to get above 100000 points, you lose if you hit 0")
+turnout.grid(row=6, column=5)
 balance.grid(row=0, column=0)
-b1.grid(row=3, column=1)
-b2.grid(row=3, column=2)
-b3.grid(row=3, column=3)
-b4.grid(row=3, column=4)
+b1.grid(row=4, column=1)
+b2.grid(row=4, column=2)
+b3.grid(row=4, column=3)
+b4.grid(row=4, column=4)
 
 
 root.mainloop()
