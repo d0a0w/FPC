@@ -10,9 +10,22 @@ result = ''
 def checkstatus():
     global bal
     global result
+    b1.configure(text="Double, 4:5 odds")
     if bal >= 100000:
+        b1.configure(text="Double")
+        b2.configure(text="Triple")
+        b3.configure(text="Quadruple")
         turnout.configure(text="You Win")
-        if game == 4:
+        if game == 1:
+            bal = bal * 2
+            balance.configure(text=str(bal) + " Points")
+        elif game == 2:
+            bal = bal * 3
+            balance.configure(text=str(bal) + " Points")
+        elif game == 3:
+            bal = bal * 4
+            balance.configure(text=str(bal) + " Points")
+        elif game == 4:
             exit()
     elif bal > 0:
         if game == 1:
@@ -50,6 +63,9 @@ def checkstatus():
         turnout.configure(text="Previous result: " + result)
     else:
         turnout.configure(text="Game Over!")
+        b1.configure(text="Restart")
+        if game == 1:
+            bal = 10000
         if game == 4:
             exit()
 
